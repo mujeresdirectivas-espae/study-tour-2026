@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instructivo de viaje · Study Tour Universidad de La Sabana 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --purple-900:#2A1D42;
+    --purple-800:#3A2A5C;
+    --purple-700:#54397F;
+    --purple-500:#8267AC;
+    --purple-200:#DED2EE;
+    --blush-300:#F2C6D4;
+    --blush-100:#FBECF1;
+    --gold-500:#C79A3D;
+    --gold-600:#A97F2A;
+    --paper:#FBF8F4;
+    --paper-alt:#F3EDFA;
+    --ink-900:#241A36;
+    --ink-600:#5E5570;
+    --ink-400:#8A8098;
+    --line:#E4DCEF;
+    --gray-300:#D7D7DC;
+    --radius-s:10px;
+    --radius-m:18px;
+    --radius-l:28px;
+    --shadow-card:0 1px 2px rgba(42,29,66,.06), 0 10px 24px -14px rgba(42,29,66,.28);
+    --maxw:980px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink-900);
+    font-family:'Manrope',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;
+    line-height:1.15;
+    margin:0;
+    color:var(--purple-900);
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  section{scroll-margin-top:120px;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  .topnav{
+    position:sticky; top:0; z-index:40;
+    background:rgba(251,248,244,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topnav .wrap{
+    display:flex; flex-direction:column; align-items:center;
+    gap:8px; padding:12px 28px;
+  }
+  .brandmark{
+    display:flex; align-items:center; gap:8px;
+    font-family:'Fraunces',serif; font-weight:600; font-size:.95rem; color:var(--purple-900);
+    white-space:nowrap;
+  }
+  .brandmark .dot{width:7px; height:7px; border-radius:50%; background:var(--purple-500);}
+  .navlinks{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+    row-gap:8px; column-gap:18px; font-size:.86rem; font-weight:600;
+  }
+  .navlinks a{
+    display:inline-flex; align-items:center;
+    text-decoration:none; color:var(--ink-600); white-space:nowrap;
+    padding:6px 2px; border-bottom:2px solid transparent; line-height:1;
+  }
+  .navlinks a:hover{color:var(--purple-800); border-color:var(--gold-500);}
+  @media (max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(155deg, var(--purple-900) 0%, var(--purple-700) 62%, var(--purple-500) 100%);
+    color:#fff;
+    overflow:hidden;
+    padding:64px 0 0;
+  }
+  .hero-route{
+    position:absolute; inset:0; opacity:.35; pointer-events:none;
+  }
+  .hero-inner{
+    position:relative; z-index:1;
+    display:flex; flex-direction:column; align-items:flex-start; gap:20px;
+    padding-bottom:56px;
+    opacity:0; transform:translateY(14px);
+    animation:rise .7s ease-out .1s forwards;
+  }
+  @keyframes rise{ to{opacity:1; transform:translateY(0);} }
+
+  .hero-top{display:flex; flex-direction:column; gap:6px;}
+  .eyebrow{
+    display:flex; align-items:center; gap:8px;
+    font-size:.92rem; color:var(--blush-300); font-weight:600;
+  }
+  .eyebrow .bar{width:22px; height:2px; background:var(--gold-500); display:inline-block;}
+
+  .hero .kicker{
+    font-family:'Manrope',sans-serif;
+    font-size:clamp(1.1rem, 2vw, 1.3rem);
+    font-weight:700; line-height:1.25; color:var(--purple-200);
+    margin:0;
+  }
+  .hero .affil{
+    font-family:'Manrope',sans-serif;
+    font-size:.85rem; font-weight:500; line-height:1.45;
+    color:var(--blush-300); margin:0; opacity:.92;
+  }
+  .hero .cohort-badge{
+    display:inline-flex; align-items:center;
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.28);
+    padding:7px 16px; border-radius:999px;
+    font-size:.82rem; font-weight:600; letter-spacing:.02em;
+  }
+
+  .hero-title{display:flex; flex-direction:column; gap:6px;}
+  .hero .title-main{
+    font-size:clamp(2.8rem, 8vw, 4.6rem);
+    font-style:italic;
+    font-weight:500;
+    line-height:1.05;
+    color:#fff;
+    letter-spacing:-.01em;
+    margin:0;
+  }
+  .hero .title-sub{
+    font-family:'Manrope',sans-serif;
+    font-size:clamp(1.5rem,3.4vw,2.05rem);
+    font-weight:300;
+    line-height:1.15;
+    color:var(--blush-300);
+    max-width:40ch;
+    margin:0;
+  }
+
+  /* Quick-facts ticket */
+  .ticket{
+    width:100%;
+    background:#fff;
+    border-radius:var(--radius-l);
+    color:var(--ink-900);
+    display:grid;
+    grid-template-columns:1fr auto 1fr auto 2fr;
+    align-items:stretch;
+    box-shadow:0 30px 60px -24px rgba(15,8,30,.55);
+    margin-top:64px;
+  }
+  .ticket-item{
+    padding:28px 30px;
+    display:grid;
+    grid-template-columns:40px 1fr;
+    column-gap:14px;
+    align-items:start;
+    text-align:left;
+  }
+  .ticket-icon{
+    width:40px; height:40px; border-radius:50%;
+    background:var(--paper-alt); border:1.5px solid var(--purple-200);
+    display:flex; align-items:center; justify-content:center; color:var(--purple-700);
+  }
+  .ticket-icon svg{width:19px; height:19px;}
+  .ticket-k{font-size:.72rem; font-weight:700; color:var(--ink-400); text-transform:uppercase; letter-spacing:.07em; margin-bottom:4px; text-align:left; line-height:1; padding-top:3px;}
+  .ticket-v{font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; color:var(--purple-900); line-height:1.4; text-align:left;}
+  .loc-rest{font-family:'Manrope',sans-serif; font-weight:400; font-size:.94rem; color:var(--ink-600); line-height:1.55; text-align:left; margin-top:5px;}
+  .ticket-sep{border-left:1.5px dashed var(--gray-300); margin:22px 0;}
+  @media (max-width:760px){
+    .ticket{grid-template-columns:1fr; margin-top:44px;}
+    .ticket-sep{border-left:none; border-top:1.5px dashed var(--gray-300); margin:0 30px;}
+  }
+
+  .hero-callout{
+    width:100%;
+    margin-top:-30px;
+    transform:translateY(50%);
+  }
+  .callout-box{
+    background:var(--blush-100);
+    border:1px solid var(--blush-300);
+    border-radius:var(--radius-m);
+    padding:22px 26px;
+    display:flex; gap:16px; align-items:flex-start;
+    color:var(--purple-900);
+    box-shadow:var(--shadow-card);
+  }
+  .callout-box svg{flex:none; width:22px;height:22px; margin-top:2px; color:var(--gold-600);}
+  .callout-box p{font-size:.97rem; color:var(--ink-600); line-height:1.65;}
+  .callout-box p strong{color:var(--purple-900);}
+
+  /* ---------- SECTION GENERIC ---------- */
+  main{padding-top:76px;}
+  .section{padding:76px 0;}
+  .section + .section{border-top:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:24px;
+    margin-bottom:34px; flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.1rem);}
+  .section-tag{
+    display:inline-block; background:var(--blush-300); color:var(--purple-900);
+    font-size:.72rem; font-weight:700; padding:4px 10px; border-radius:6px; margin-bottom:10px;
+  }
+  .section-lede{max-width:60ch; color:var(--ink-600); font-size:1.02rem;}
+  .head-full{width:100%;}
+  .head-full > .section-lede{margin-top:14px; max-width:none;}
+
+  /* ---------- TRASLADOS ---------- */
+  .route-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-l);
+    padding:36px; box-shadow:var(--shadow-card);
+    display:grid; grid-template-columns:1fr 1.1fr; gap:40px; align-items:center;
+  }
+  @media (max-width:800px){ .route-card{grid-template-columns:1fr;} }
+  .route-diagram{display:flex; flex-direction:column; gap:0;}
+  .route-node{display:flex; align-items:center; gap:14px;}
+  .route-node .pin{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--paper-alt); border:1.5px solid var(--purple-200);
+    display:flex; align-items:center; justify-content:center; color:var(--purple-700); flex:none;
+  }
+  .route-node .pin svg{width:18px;height:18px;}
+  .route-node strong{font-family:'Fraunces',serif; font-size:1.08rem; color:var(--purple-900); font-weight:600;}
+  .route-node span{display:block; font-size:.85rem; color:var(--ink-600);}
+  .route-connector{
+    margin-left:19px; width:0; border-left:2px dashed var(--purple-200);
+    height:38px; position:relative;
+  }
+  .route-connector .chip{
+    position:absolute; left:16px; top:50%; transform:translateY(-50%);
+    background:var(--gold-500); color:#fff; font-size:.72rem; font-weight:700;
+    padding:4px 10px; border-radius:999px; white-space:nowrap;
+  }
+  .schedule-chips{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media (max-width:480px){ .schedule-chips{grid-template-columns:1fr;} }
+  .schedule-chip{
+    background:var(--paper-alt); border:1px solid var(--purple-200);
+    border-radius:var(--radius-s); padding:14px 18px;
+  }
+  .schedule-chip .k{font-size:.72rem; font-weight:700; color:var(--purple-500); text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px;}
+  .schedule-chip .v{font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; color:var(--purple-900);}
+
+  /* ---------- INCLUYE / NO INCLUYE ---------- */
+  .include-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-l);
+    padding:36px; box-shadow:var(--shadow-card);
+    display:grid; grid-template-columns:1fr auto 1fr; gap:32px;
+  }
+  .include-col-head{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem; color:var(--purple-900);
+    margin-bottom:16px;
+  }
+  .include-icon{
+    width:30px; height:30px; border-radius:50%; flex:none;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .include-icon svg{width:15px; height:15px;}
+  .include-icon--yes{background:var(--paper-alt); border:1.5px solid var(--purple-200); color:var(--purple-700);}
+  .include-icon--no{background:var(--paper); border:1.5px solid var(--line); color:var(--ink-400);}
+  .include-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .include-list li{position:relative; padding-left:22px; font-size:.95rem; color:var(--ink-600); line-height:1.5;}
+  .include-list li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--gold-600); font-weight:700; font-size:.85rem;}
+  .include-list--no li::before{content:"–"; color:var(--ink-400); font-weight:700;}
+  .include-divider{border-left:1.5px dashed var(--gray-300);}
+  @media (max-width:760px){
+    .include-card{grid-template-columns:1fr; gap:24px; padding:28px;}
+    .include-divider{display:none;}
+    .include-col--no{border-top:1.5px dashed var(--gray-300); padding-top:24px;}
+  }
+
+  /* ---------- CRONOGRAMA ---------- */
+  .day-tabs{
+    display:flex; justify-content:center; gap:10px; overflow-x:auto; padding-bottom:6px; margin-bottom:30px;
+    scrollbar-width:thin;
+  }
+  .day-tab{
+    flex:none; cursor:pointer; background:#fff; border:1.5px solid var(--line);
+    border-radius:999px; padding:10px 20px; font-family:'Manrope',sans-serif;
+    font-weight:700; font-size:.88rem; color:var(--ink-600);
+  }
+  .day-tab .d{display:block; font-size:.68rem; font-weight:600; color:var(--ink-400); text-transform:uppercase; letter-spacing:.05em;}
+  .day-tab[aria-selected="true"]{
+    background:var(--purple-800); border-color:var(--purple-800); color:#fff;
+  }
+  .day-tab[aria-selected="true"] .d{color:var(--blush-300);}
+
+  .day-panel{display:none;}
+  .day-panel.active{display:block; animation:fadein .35s ease;}
+  @keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .timeline{position:relative; padding-left:30px; max-width:640px; margin:0 auto;}
+  .timeline::before{
+    content:""; position:absolute; left:9px; top:6px; bottom:6px;
+    width:2px; background:var(--purple-200);
+  }
+  .timeline-item{position:relative; padding-bottom:26px;}
+  .timeline-item:last-child{padding-bottom:0;}
+  .timeline-item::before{
+    content:""; position:absolute; left:-30px; top:4px;
+    width:14px; height:14px; border-radius:50%;
+    background:#fff; border:3px solid var(--gold-500);
+  }
+  .timeline-item .time{font-size:.78rem; font-weight:700; color:var(--gold-600); text-transform:uppercase; letter-spacing:.05em; margin-bottom:2px;}
+  .timeline-item .ttl{font-family:'Fraunces',serif; font-weight:600; font-size:1.08rem; color:var(--purple-900);}
+  .timeline-item .desc{font-size:.92rem; color:var(--ink-600); margin-top:3px; max-width:56ch;}
+
+  /* ---------- HOSPEDAJE ---------- */
+  .stay-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:760px){ .stay-grid{grid-template-columns:1fr;} }
+  .stub-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
+    box-shadow:var(--shadow-card); overflow:hidden;
+  }
+  .stub-head{
+    background:var(--purple-900); color:#fff; padding:16px 22px;
+    display:flex; align-items:center; gap:10px; font-weight:700; font-size:.92rem;
+  }
+  .stub-head svg{width:16px;height:16px;color:var(--blush-300);}
+  .stub-body{padding:22px;}
+  .stub-body .date{font-family:'Fraunces',serif; font-weight:600; font-size:1.3rem; color:var(--purple-900);}
+  .stub-body .hour{font-size:.95rem; color:var(--ink-600); margin-top:4px;}
+  .stay-note{
+    grid-column:1/-1; background:var(--paper-alt); border:1px solid var(--purple-200);
+    border-radius:var(--radius-m); padding:20px 24px; font-size:.92rem; color:var(--ink-600);
+  }
+  .stay-note strong{color:var(--purple-900);}
+  .hotel-addr{
+    display:flex; gap:14px; align-items:flex-start; margin-bottom:28px;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m); padding:20px 24px;
+    box-shadow:var(--shadow-card);
+  }
+  .hotel-addr svg{flex:none; width:22px;height:22px; color:var(--purple-700); margin-top:2px;}
+  .hotel-addr strong{color:var(--purple-900); font-family:'Fraunces',serif; font-weight:600; display:block; margin-bottom:2px;}
+  .hotel-addr span{color:var(--ink-600); font-size:.93rem;}
+
+  /* ---------- VESTIMENTA ---------- */
+  .dress-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:32px; align-items:center;}
+  @media (max-width:760px){ .dress-grid{grid-template-columns:1fr;} }
+  .dress-copy p{color:var(--ink-600); font-size:1.02rem; margin-bottom:14px;}
+  .dress-copy p:last-child{margin-bottom:0;}
+  .weather-card{
+    background:linear-gradient(160deg, var(--purple-800), var(--purple-500));
+    color:#fff; border-radius:var(--radius-l); padding:30px; text-align:center;
+  }
+  .weather-card .range{
+    font-family:'Fraunces',serif; font-size:2.6rem; font-weight:600;
+  }
+  .weather-card .range small{font-size:1.1rem; font-weight:500;}
+  .weather-card .cap{font-size:.82rem; color:var(--blush-300); font-weight:600; margin-top:6px;}
+  .weather-card svg{width:34px; height:34px; margin:0 auto 10px; color:var(--gold-500);}
+
+  /* ---------- RECOMENDACIONES ---------- */
+  .tips-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  @media (max-width:760px){ .tips-grid{grid-template-columns:1fr;} }
+  .tip-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:26px; box-shadow:var(--shadow-card);
+  }
+  .tip-icon{
+    width:40px; height:40px; border-radius:50%; margin-bottom:16px;
+    background:var(--paper-alt); border:1.5px solid var(--purple-200);
+    display:flex; align-items:center; justify-content:center; color:var(--purple-700);
+  }
+  .tip-icon svg{width:19px; height:19px;}
+  .tip-card h3{font-family:'Fraunces',serif; font-weight:600; font-size:1.05rem; color:var(--purple-900); margin-bottom:8px;}
+  .tip-card p{font-size:.92rem; color:var(--ink-600); line-height:1.55;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{display:flex; flex-direction:column; gap:12px;}
+  details{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-m);
+    padding:4px 24px;
+  }
+  details[open]{border-color:var(--purple-200);}
+  summary{
+    list-style:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:18px 0; font-family:'Fraunces',serif; font-weight:600; color:var(--purple-900); font-size:1.02rem;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary .chevron{
+    flex:none; width:20px;height:20px; color:var(--purple-500);
+    transition:transform .25s ease;
+  }
+  details[open] summary .chevron{transform:rotate(180deg);}
+  .faq-body{padding:0 0 20px; color:var(--ink-600); font-size:.95rem; line-height:1.7;}
+  .faq-body p + p{margin-top:12px;}
+  .faq-body ul{margin:12px 0 0; padding-left:20px;}
+  .faq-body li{margin-bottom:8px;}
+  .faq-body li:last-child{margin-bottom:0;}
+  .faq-body table{width:100%; border-collapse:collapse; margin-top:12px; font-size:.9rem;}
+  .faq-body th,.faq-body td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line);}
+  .faq-body th{color:var(--purple-900); font-weight:700; background:var(--paper-alt);}
+  .faq-body td:last-child, .faq-body th:last-child{text-align:right;}
+  .faq-note{margin-top:12px; font-size:.82rem; color:var(--ink-400);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--purple-900); color:var(--blush-100); padding:52px 0 34px;}
+  .footer-top{display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px; padding-bottom:28px; border-bottom:1px solid rgba(255,255,255,.14);}
+  .footer-tagline{font-family:'Fraunces',serif; font-style:italic; font-size:1.6rem; color:#fff;}
+  .footer-orgs{font-size:.88rem; line-height:1.8; color:var(--blush-300); text-align:center;}
+  .footer-orgs a{color:#fff; text-decoration:none; font-weight:600;}
+  .footer-bottom{padding-top:20px; font-size:.78rem; color:var(--purple-200); display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px;}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <div class="brandmark"><span class="dot"></span>ESPAE · Study Tour 2026<span class="dot"></span></div>
+    <div class="navlinks">
+      <a href="#traslados">Traslados</a>
+      <a href="#incluye">Incluye</a>
+      <a href="#cronograma">Cronograma</a>
+      <a href="#hospedaje">Hospedaje</a>
+      <a href="#vestimenta">Vestimenta</a>
+      <a href="#recomendaciones">Recomendaciones</a>
+      <a href="#faq">Preguntas frecuentes</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="hero-route" viewBox="0 0 1000 420" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M -20 340 Q 220 260 380 300 T 760 200 T 1040 120" fill="none" stroke="#F2C6D4" stroke-width="1.4" stroke-dasharray="2 10" stroke-linecap="round"/>
+    <path d="M -40 120 Q 200 60 420 110 T 900 40" fill="none" stroke="#C79A3D" stroke-width="1.2" stroke-dasharray="1 9" stroke-linecap="round"/>
+    <circle cx="380" cy="300" r="3.5" fill="#F2C6D4"/>
+    <circle cx="760" cy="200" r="3.5" fill="#F2C6D4"/>
+    <circle cx="420" cy="110" r="3" fill="#C79A3D"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="hero-top">
+      <div class="eyebrow"><span class="bar"></span>Diplomado Internacional</div>
+      <p class="kicker">Desarrollo de Habilidades para Mujeres Directivas</p>
+      <p class="affil">ESPAE, Escuela de Negocios de la ESPOL, en alianza con la Universidad de La Sabana</p>
+    </div>
+    <span class="cohort-badge">Cuarta cohorte</span>
+
+    <div class="hero-title">
+      <h1 class="title-main">Study Tour 2026</h1>
+      <p class="title-sub">Instructivo de viaje</p>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-item">
+        <span class="ticket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span>
+        <div>
+          <div class="ticket-k">Fechas</div>
+          <div class="ticket-v">Del 26 al 28 de octubre de 2026</div>
+        </div>
+      </div>
+      <div class="ticket-sep" aria-hidden="true"></div>
+      <div class="ticket-item">
+        <span class="ticket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+        <div>
+          <div class="ticket-k">Duración</div>
+          <div class="ticket-v">24 horas académicas</div>
+        </div>
+      </div>
+      <div class="ticket-sep" aria-hidden="true"></div>
+      <div class="ticket-item">
+        <span class="ticket-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+        <div>
+          <div class="ticket-k">Locación</div>
+          <div class="ticket-v">Escuela Internacional de Ciencias Económicas y Administrativas</div>
+          <div class="loc-rest">Universidad de La Sabana, Campus del Puente del Común, Chía, Colombia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero-callout">
+    <div class="callout-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>
+      <p><strong>Este instructivo reúne todo lo que necesitas para tu Study Tour:</strong> traslados, cronograma, hospedaje, código de vestimenta y las preguntas que más nos hacen las participantes. Guárdalo a la mano durante tu viaje.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section id="traslados" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="head-full">
+          <span class="section-tag">Movilidad</span>
+          <h2>Traslados</h2>
+          <p class="section-lede">Durante los tres días de actividades académicas contarás con transporte exclusivo entre tu hotel y la universidad, así como hacia las actividades extra-académicas.</p>
+        </div>
+      </div>
+
+      <div class="route-card">
+        <div class="route-diagram">
+          <div class="route-node">
+            <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></span>
+            <div><strong>Hotel Ibis Chía</strong><span>Punto de salida diario</span></div>
+          </div>
+          <div class="route-connector"><span class="chip">Shuttle</span></div>
+          <div class="route-node">
+            <span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-7h6v7"/><path d="M9 12h.01M15 12h.01M9 8h.01M15 8h.01"/></svg></span>
+            <div><strong>Universidad de La Sabana</strong><span>Campus del Puente del Común, Chía</span></div>
+          </div>
+        </div>
+
+        <div class="schedule-chips">
+          <div class="schedule-chip">
+            <div class="k">Ruta</div>
+            <div class="v">Ida y regreso</div>
+          </div>
+          <div class="schedule-chip">
+            <div class="k">Fechas</div>
+            <div class="v">26 – 28 oct.</div>
+          </div>
+          <div class="schedule-chip">
+            <div class="k">Salida</div>
+            <div class="v">07h30</div>
+          </div>
+          <div class="schedule-chip">
+            <div class="k">Regreso</div>
+            <div class="v">17h00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="incluye" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="head-full">
+          <span class="section-tag">Inversión</span>
+          <h2>Qué incluye el Study Tour</h2>
+          <p class="section-lede">Antes de armar tu maleta, ten claro qué cubre el programa y qué gastos corren por tu cuenta.</p>
+        </div>
+      </div>
+
+      <div class="include-card">
+        <div class="include-col">
+          <div class="include-col-head">
+            <span class="include-icon include-icon--yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L19 7"/></svg></span>
+            Incluye
+          </div>
+          <ul class="include-list">
+            <li>Matrícula en el curso "Liderazgo social y transformativo"</li>
+            <li>Traslados entre el Hotel Ibis Chía y la Universidad de La Sabana (ida y regreso)</li>
+            <li>Traslados desde la universidad hacia el lugar de las actividades extra-académicas</li>
+            <li>Alojamiento del 25 al 29 de octubre (incluye desayunos)</li>
+            <li>Almuerzos en los restaurantes de la Universidad de La Sabana</li>
+          </ul>
+        </div>
+        <div class="include-divider" aria-hidden="true"></div>
+        <div class="include-col include-col--no">
+          <div class="include-col-head">
+            <span class="include-icon include-icon--no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            No incluye
+          </div>
+          <ul class="include-list include-list--no">
+            <li>Cenas</li>
+            <li>Traslados desde y hacia el Aeropuerto Internacional El Dorado</li>
+            <li>Boleto aéreo Guayaquil – Bogotá – Guayaquil (GYE–BOG–GYE)</li>
+            <li>Entrada a la Catedral de Sal de Zipaquirá</li>
+            <li>Otros gastos personales o de transporte no especificados en el programa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cronograma" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="head-full">
+          <span class="section-tag">Agenda</span>
+          <h2>Cronograma del Study Tour</h2>
+          <p class="section-lede">Tu semana en Bogotá combina sesiones académicas en la Universidad de La Sabana con actividades extra-académicas para conectar con el entorno empresarial colombiano.</p>
+        </div>
+      </div>
+
+      <div class="day-tabs" role="tablist" aria-label="Días del Study Tour">
+        <button class="day-tab" data-day="d0" aria-selected="true"><span class="d">Dom</span>25 oct</button>
+        <button class="day-tab" data-day="d1" aria-selected="false"><span class="d">Lun</span>26 oct</button>
+        <button class="day-tab" data-day="d2" aria-selected="false"><span class="d">Mar</span>27 oct</button>
+        <button class="day-tab" data-day="d3" aria-selected="false"><span class="d">Mié</span>28 oct</button>
+        <button class="day-tab" data-day="d4" aria-selected="false"><span class="d">Jue</span>29 oct</button>
+      </div>
+
+      <div class="day-panel active" id="d0">
+        <div class="timeline">
+          <div class="timeline-item"><div class="time">Llegada</div><div class="ttl">Llegada a Bogotá</div><div class="desc">Aterrizaje en el Aeropuerto Internacional El Dorado.</div></div>
+          <div class="timeline-item"><div class="time">Traslado</div><div class="ttl">Traslado al Hotel Ibis Chía</div><div class="desc">Transporte hacia el hotel en Chía (aprox. 1 hora desde el aeropuerto). Este traslado no está cubierto por el importe de la colegiatura del Study Tour.</div></div>
+          <div class="timeline-item"><div class="time">Desde las 15h00</div><div class="ttl">Check-in</div><div class="desc">Instálate y descansa antes del inicio de actividades.</div></div>
+        </div>
+      </div>
+
+      <div class="day-panel" id="d1">
+        <div class="timeline">
+          <div class="timeline-item"><div class="time">07h30</div><div class="ttl">Salida del hotel</div><div class="desc">Traslado hacia la Universidad de La Sabana.</div></div>
+          <div class="timeline-item"><div class="time">08h00</div><div class="ttl">Bienvenida</div><div class="desc">Actividad de apertura e inicio de las actividades del Study Tour.</div></div>
+          <div class="timeline-item"><div class="time">08h15 – 12h00</div><div class="ttl">Módulo: Liderazgo social y transformativo - Sesión 1</div><div class="desc">La sesión abordará el liderazgo en entornos complejos y cargados de incertidumbre.</div></div>
+          <div class="timeline-item"><div class="time">12h00 – 13h00</div><div class="ttl">Almuerzo</div><div class="desc">Restaurantes de la Universidad de La Sabana.</div></div>
+          <div class="timeline-item"><div class="time">13h00 – 17h00</div><div class="ttl">Actividad extra-académica: visita empresarial</div><div class="desc">Recorrido en una reconocida organización colombiana.</div></div>
+          <div class="timeline-item"><div class="time">17h00</div><div class="ttl">Regreso al hotel</div><div class="desc">Traslado de vuelta al Hotel Ibis Chía.</div></div>
+        </div>
+      </div>
+
+      <div class="day-panel" id="d2">
+        <div class="timeline">
+          <div class="timeline-item"><div class="time">07h30</div><div class="ttl">Salida del hotel</div><div class="desc">Traslado hacia la Universidad de La Sabana.</div></div>
+          <div class="timeline-item"><div class="time">08h00 – 12h00</div><div class="ttl">Módulo: Liderazgo social y transformativo - Sesión 2</div><div class="desc">La sesión abordará la caracterización del estilo de liderazgo social y transformativo.</div></div>
+          <div class="timeline-item"><div class="time">12h00 – 13h00</div><div class="ttl">Almuerzo</div><div class="desc">Restaurantes de la Universidad de La Sabana.</div></div>
+          <div class="timeline-item"><div class="time">13h00 – 17h00</div><div class="ttl">Actividad extra-académica: networking</div><div class="desc">Evento de networking con ejecutivas colombianas.</div></div>
+          <div class="timeline-item"><div class="time">17h00</div><div class="ttl">Regreso al hotel</div><div class="desc">Traslado de vuelta al Hotel Ibis Chía.</div></div>
+        </div>
+      </div>
+
+      <div class="day-panel" id="d3">
+        <div class="timeline">
+          <div class="timeline-item"><div class="time">07h30</div><div class="ttl">Salida del hotel</div><div class="desc">Traslado hacia la Universidad de La Sabana.</div></div>
+          <div class="timeline-item"><div class="time">08h00 – 12h00</div><div class="ttl">Módulo: Liderazgo social y transformativo - Sesión 3</div><div class="desc">La sesión abordará las herramientas de coaching para un líder social y transformativo.</div></div>
+          <div class="timeline-item"><div class="time">12h00 – 13h00</div><div class="ttl">Clausura</div><div class="desc">Actividad de cierre del Study Tour.</div></div>
+          <div class="timeline-item"><div class="time">13h00 – 14h30</div><div class="ttl">Almuerzo</div><div class="desc">Restaurantes de la Universidad de La Sabana.</div></div>
+          <div class="timeline-item"><div class="time">14h30 – 18h00</div><div class="ttl">Visita a la Catedral de Sal de Zipaquirá</div><div class="desc">A una hora de Bogotá, este templo subterráneo está esculpido a 180 metros de profundidad dentro de una mina de sal y alberga un vía crucis tallado en piedra; es reconocida como la Primera Maravilla de Colombia.</div></div>
+          <div class="timeline-item"><div class="time">18h00</div><div class="ttl">Traslado al Hotel Ibis Chía</div><div class="desc">Regreso al hotel tras la visita a Zipaquirá.</div></div>
+        </div>
+      </div>
+
+      <div class="day-panel" id="d4">
+        <div class="timeline">
+          <div class="timeline-item"><div class="time">Hasta las 12h00</div><div class="ttl">Check-out</div><div class="desc">Salida del Hotel Ibis Chía.</div></div>
+          <div class="timeline-item"><div class="time">Salida</div><div class="ttl">Traslado hacia el Aeropuerto El Dorado</div><div class="desc">Calcula alrededor de 1 hora, hasta 1 h 30 en horas de tráfico alto. Este traslado no está cubierto por el importe del programa.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hospedaje" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="head-full">
+          <span class="section-tag">Alojamiento</span>
+          <h2>Tu estadía en el Hotel Ibis Chía</h2>
+          <p class="section-lede">Tu habitación estará reservada desde la tarde del domingo hasta la mañana del jueves.</p>
+        </div>
+      </div>
+
+      <div class="hotel-addr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div>
+          <strong>Hotel Ibis Chía</strong>
+          <span>Km. 2 vía Chía – Cajicá, Cundinamarca · a unos 45 minutos de Bogotá.</span>
+        </div>
+      </div>
+
+      <div class="stay-grid">
+        <div class="stub-card">
+          <div class="stub-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+            Check-in
+          </div>
+          <div class="stub-body">
+            <div class="date">Domingo, 25 de octubre de 2026</div>
+            <div class="hour">A partir de las 15h00</div>
+          </div>
+        </div>
+        <div class="stub-card">
+          <div class="stub-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+            Check-out
+          </div>
+          <div class="stub-body">
+            <div class="date">Jueves, 29 de octubre de 2026</div>
+            <div class="hour">Hasta las 12h00</div>
+          </div>
+        </div>
+        <div class="stay-note">
+          <strong>¿Viajas con acompañante?</strong> Puede hacerlo, aunque no tendrá acceso a las actividades académicas ni extra-académicas del Study Tour. Si deseas cambiar a una habitación doble o familiar, contacta directamente al Hotel Ibis Chía indicando tu número de reserva para gestionar el costo adicional.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vestimenta" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">Equipaje</span>
+          <h2>Código de vestimenta</h2>
+        </div>
+      </div>
+
+      <div class="dress-grid">
+        <div class="dress-copy">
+          <p>Te recomendamos vestimenta semiformal, que te dé versatilidad durante el día: por las mañanas estarás en las aulas de la Universidad de La Sabana y por las tardes en actividades diversas.</p>
+          <p>Bogotá y Chía se mantienen frescas todo el año, así que un abrigo o chaqueta ligera es tan esencial en tu maleta como tu vestimenta de trabajo.</p>
+        </div>
+        <div class="weather-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 14.76V3.5a2 2 0 0 0-4 0v11.26a4 4 0 1 0 4 0z"/></svg>
+          <div class="range">9° <small>–</small> 20°C</div>
+          <div class="cap">Temperatura promedio en Bogotá en esta temporada</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="recomendaciones" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">Antes de viajar</span>
+          <h2>Recomendaciones</h2>
+        </div>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 18.5h20l-1.7-3.5H3.7z"/></svg></span>
+          <h3>Lleva tu laptop</h3>
+          <p>El material de las sesiones académicas se distribuirá de forma virtual, así que te recomendamos llevarla a la universidad.</p>
+        </div>
+        <div class="tip-card">
+          <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3l3 2 3-2 1 3-2 2 1.5 12-3.5 2-3.5-2L9.5 8l-2-2z"/></svg></span>
+          <h3>Vestimenta para el networking</h3>
+          <p>Para el evento de networking del 26 de octubre usa formal de negocios, distinto al semiformal recomendado para el resto de las actividades.</p>
+        </div>
+        <div class="tip-card">
+          <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13.5" r="3.3"/></svg></span>
+          <h3>Fotografías y video</h3>
+          <p>Durante el Study Tour se tomarán fotografías y video con fines institucionales y de difusión de ESPAE y la Universidad de La Sabana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">Resolvemos tus dudas</span>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>¿Dónde queda la Universidad de La Sabana?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-body">Campus del Puente del Común, Km. 7, Autopista Norte de Bogotá, Chía, Cundinamarca. La universidad no está en Bogotá, sino en el municipio de Chía.</div>
+        </details>
+
+        <details open>
+          <summary>¿Debo tener alguna precaución por la altitud?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-body">Bogotá y Chía están a unos 2.600 msnm, y Zipaquirá se encuentra a una altura similar. Es normal sentir cansancio, dolor de cabeza leve o falta de aire los primeros días. Te recomendamos hidratarte bien, evitar el alcohol y los esfuerzos físicos intensos el primer día, y comer ligero. Si los síntomas persisten o empeoran, consulta con el personal del hotel o de la universidad.</div>
+        </details>
+
+        <details>
+          <summary>¿Cuánto se demora el trayecto entre el hotel y la universidad?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-body">Entre 20 y 25 minutos, dependiendo del tráfico de la zona. Por eso el transporte del Diplomado sale con tiempo suficiente cada mañana.</div>
+        </details>
+
+        <details>
+          <summary>¿Cuánto se demora el trayecto entre el aeropuerto y el hotel?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-body">Aproximadamente 1 hora; en días de mucho tráfico puede tomar hasta 1 hora y media. Ten esto en cuenta al planificar tus vuelos de llegada y salida.</div>
+        </details>
+
+        <details>
+          <summary>¿Qué medio de transporte se recomienda para moverte en la ciudad?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-body">La app "Taxis Libres" (disponible en App Store y Google Play), además de Uber y Didi. Todas trabajan con carros particulares y taxis, tienen tarifas razonables y ofrecen la opción de compartir viaje, lo que suma seguridad para el pasajero.</div>
+        </details>
+
+        <details>
+          <summary>¿Cuánto debo presupuestar para comida y transporte?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-body">
+            Los gastos personales varían según el sitio y tus gustos; estos son montos referenciales:
+            <table>
+              <thead><tr><th>Concepto</th><th>Rango en COP</th><th>Aprox. en USD</th></tr></thead>
+              <tbody>
+                <tr><td>Desayuno</td><td>$20.000 – $30.000</td><td>USD 6 – 10</td></tr>
+                <tr><td>Almuerzo o cena</td><td>$25.000 – $70.000</td><td>USD 8 – 23</td></tr>
+                <tr><td>Taxi Aeropuerto El Dorado → centro</td><td>$20.000 – $40.000</td><td>USD 6 – 13</td></tr>
+                <tr><td>Taxi norte de la ciudad → centro</td><td>$25.000 – $35.000</td><td>USD 8 – 11</td></tr>
+              </tbody>
+            </table>
+            <p class="faq-note">Conversión referencial con la TRM de septiembre de 2026 (≈ $3.100 COP por USD 1). La tasa cambia a diario: confírmala antes de tu viaje.</p>
+            <p>Te recomendamos cambiar algo de efectivo en el aeropuerto: suele ofrecer mejor tasa que las casas de cambio del centro. Para el resto de tus gastos, las tarjetas internacionales (débito y crédito) son ampliamente aceptadas en restaurantes, comercios y en apps de transporte como Uber o Didi.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>¿Qué documentos de viaje necesito?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-body">
+            <p>Como ciudadana ecuatoriana no necesitas visa para este viaje, y puedes ingresar a Colombia presentando tu cédula de ciudadanía o tu pasaporte, gracias al acuerdo de la Comunidad Andina (CAN). Aun así, hay algunos trámites migratorios a tener en cuenta:</p>
+            <ul>
+              <li><strong>Pasaporte vigente:</strong> si viajas con pasaporte, se recomienda que tenga al menos 6 meses de vigencia a partir de la fecha de ingreso a Colombia.</li>
+              <li><strong>Formulario Check-Mig:</strong> declaración migratoria previa, gratuita y obligatoria para todo viajero que entra a Colombia. Se completa en línea en el portal oficial de Migración Colombia, entre 72 y 1 hora antes de tu vuelo. Te recomendamos hacerlo con anticipación y llevarlo impreso: agiliza el trámite y hace la entrevista de control migratorio mucho más rápida.</li>
+              <li><strong>Permiso de Integración y Desarrollo (PID):</strong> es la autorización migratoria que Colombia otorga a ciudadanos de países exentos de visa que ingresan por corta estancia y sin ánimo de lucro. Se asigna directamente en el control migratorio al momento de tu llegada. La Universidad de La Sabana enviará una carta de invitación para tramitarlo; te recomendamos llevar una copia impresa para presentarla en el control migratorio.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-tagline">Inspira. Lidera. Transforma.</div>
+      <div class="footer-orgs">
+        ESPOL · ESPAE Escuela de Negocios<br>
+        En alianza con Universidad de La Sabana<br>
+        <a href="https://www.espae.edu.ec" target="_blank" rel="noopener">www.espae.edu.ec</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Diplomado Internacional Desarrollo de Habilidades para Mujeres Directivas — Cuarta cohorte</span>
+      <span>Instructivo de viaje · Study Tour, 26–28 de octubre de 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.day-tab');
+  const panels = document.querySelectorAll('.day-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.setAttribute('aria-selected','false'));
+      panels.forEach(p => p.classList.remove('active'));
+      tab.setAttribute('aria-selected','true');
+      document.getElementById(tab.dataset.day).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
